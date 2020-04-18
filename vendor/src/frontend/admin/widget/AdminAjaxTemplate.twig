@@ -1,0 +1,62 @@
+<div class="admin-ajax-template">
+
+    <div class="admin-ajax-header">
+        <p id="{{id}}-header" class="admin-ajax-info">
+            {{ lang.get(header|default("PlaceholderHeader")) }}
+        </p>
+
+        <p id="{{id}}-loading" class="admin-ajax-info">
+            {{ lang.get("Loading") }}
+        </p>
+    
+        <p id="{{id}}-error" class="admin-ajax-info">
+            {{ lang.get("Error") }}: <span data-insert-error="here"></span>
+            
+            <span class="{{id}}-btn-refresh admin-ajax-refresh-btn">
+                <i class="fas fa-sync"></i>
+            </span>
+        </p>
+    </div>
+
+
+    <div 
+        class="admin-ajax-template-destination"
+        id="{{id}}" 
+        data-url="{{url}}"
+        data-page="{{argsGet.getInt(pageGetParam, 0, NULL, 0)}}"
+        data-delay="{{delay|default(1000)}}"
+
+        data-button-prev="{{id}}-btn-prev"
+        data-button-next="{{id}}-btn-next"
+        data-button-refresh="{{id}}-btn-refresh"
+        
+        data-insertion-total-pages="{{id}}-total-pages"
+        data-insertion-current-page="{{id}}-current-page"
+        
+        data-template="{{id}}-template"
+        
+        data-class-hidden-loading="{{classHiddenLoading|default("admin-info-hidden")}}"
+        data-template-loading="{{id}}-loading" 
+
+        data-class-hidden-error="{{classHiddenError|default("admin-info-hidden")}}"
+        data-template-error="{{id}}-error"
+
+        data-class-hidden-header="{{classHiddenHeader|default("admin-info-hidden")}}"
+        data-template-header="{{id}}-header"
+    >    
+    </div>
+
+    <div class="admin-ajax-template-details">
+        <span class="{{id}}-btn-prev admin-ajax-template-control left disabled">
+            <i class="fas fa-chevron-left"></i>
+        </span>
+
+        <span class="admin-ajax-template-control-text">
+            {{ lang.get("Page") }} <span class="{{id}}-current-page">0</span> / <span class="{{id}}-total-pages">0</span>
+        </span>
+        
+        <span class="{{id}}-btn-next admin-ajax-template-control right">
+            <i class="fas fa-chevron-right"></i>
+        </span>
+    </div>
+</div>

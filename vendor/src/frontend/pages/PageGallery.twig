@@ -1,0 +1,25 @@
+{% set images = serverMetaData.getUploaded("images") %}
+
+<div class="provided-gallery">
+    <h1>
+        {{ lang.get("PageGalleryTitle") }}
+    </h1>
+
+    <div class="page-gallery-contents">
+        {% for item in images %}
+            <div class="page-gallery-photo">
+                <img src="/uploads/images/{{item}}" alt="Photo">
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="page-gallery-photo-preview">
+        <div class="page-gallery-photo-preview-content">
+            <div class="page-gallery-close-btn">
+                <i class="far fa-times-circle"></i>
+            </div>
+
+            <img src="/uploads/images/image--000.jpg" alt="">
+        </div>
+    </div>
+</div>

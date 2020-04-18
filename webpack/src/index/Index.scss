@@ -1,0 +1,39 @@
+@import "../Shared.scss";
+
+$noschColor: rgb(238, 126, 42);
+
+$bodyBackground: rgb(255, 255, 255);
+
+$headerBackground: #54433A;
+$headerTextColor: white;
+$headerSubTextColor: rgb(189, 189, 189);
+
+$headerButtonColor: white;
+
+html, body {
+    background-color: $bodyBackground;
+}
+
+.index-hidden-components {
+    display: none;
+}
+
+@import "./style/Header.scss";
+@import "./style/HeaderVideo.scss";
+@import "./style/Content.scss";
+@import "./style/InvalidPage.scss";
+@import "./style/Footer.scss";
+@import "./style/Page.scss";
+
+// provided widgets
+@import "./style/WidgetIndexDialog.scss";
+@import "./style/WidgetIndexDialogCalendar.scss";
+
+// provided websites
+@import "./style/ProvidedArticle.scss";
+@import "./style/ProvidedArticleList.scss";
+@import "./style/ProvidedCalendar.scss";
+@import "./style/ProvidedContactUs.scss";
+@import "./style/ProvidedIndex.scss";
+@import "./style/ProvidedGallery.scss";
+@import "./style/ProvidedDocuments.scss";

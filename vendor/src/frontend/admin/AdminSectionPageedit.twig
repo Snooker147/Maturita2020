@@ -1,0 +1,77 @@
+{% set editingPageId = argsGet.getInt("id", NULL, NULL, 0) %}
+{% set doc = db.getPageByID(editingPageId) %}
+
+{% if doc == NULL %}
+
+    {% 
+        include "widget/AdminError.twig" with 
+        { 
+            "error": "EditPageInvalid",
+            "closable": false,
+        } 
+    %}
+    
+{% else %}
+
+{% 
+    include "widget/AdminForm.twig" with
+    {
+        "id": "page",
+
+        "title": "AdminEditPage",
+        "actionMessage": "PageUpdated",
+        "actionButtonMessage": "ButtonEditPage",
+
+        "usage": "edit",
+
+        "useDeleteButton": true,
+        "deleteMessage": "PageDeleted",
+        "deleteMessageButton": "ButtonDeletePage",
+        "deleteRedirect": "admin?page=page",
+
+        "useList": false,
+        "listHeader": "PageListHeader",
+        "editorPage": "pageedit",
+        "templateItemFields": ["UniqueName", "LanguageID"],
+
+        "editIdValue": doc.ID,
+
+        "useHtmlEditor": true,
+        "initialHtmlValue": doc.HTML,
+
+        "endpoint": "pages",
+        "createMethod": "create-page",
+        "paginateMethod": "get-pages",
+        "deleteMethod": "remove-page",
+
+        "inputs": [
+            {
+                "name": "unique",
+                "icon": "fa-id-card",
+                "title": "PageID",
+                "placeholder": "PageIDPlaceholder",
+                "bind": doc.UniqueName,
+            },
+            {
+                "name": "heading",
+                "icon": "fa-heading",
+                "title": "PageTitle",
+                "placeholder": "PageTitlePlaceholder",
+                "bind": doc.HeaderText,
+            }
+        ],
+        
+        "inputEnums": [
+            {
+                "name": "languageid",
+                "icon": "fa-flag",
+                "title": "PageLanguage",
+                "options": lang.getRegisteredLanguagesAsSortifiedArray(),
+                "bind": doc.LanguageID
+            }
+        ]
+
+    }
+%}
+
+{% endif %}

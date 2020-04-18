@@ -1,0 +1,150 @@
+.calendar-title-header {
+    font-size: 2em;
+    background-color: black;
+    color: white;
+
+    border: 1px solid gray;
+    border-bottom: none;
+
+    padding: 5px 10px;
+}
+
+.provided-calendar {
+
+    display: table;
+    border-collapse: collapse;
+    
+    width: 100%;
+    table-layout: fixed;
+
+    .calendar-row {
+        display: table-row;
+
+        border-collapse: collapse;
+
+        height: 98px;
+
+    }
+
+    .calendar-row-header .calendar-day {
+        background-color: black;
+        color: white;
+    }
+
+
+    .calendar-day {
+        position: relative;
+        display: table-cell;
+
+        border: 1px solid gray;
+        
+        border-collapse: collapse;
+
+        padding: 2px 5px;
+    }
+
+    .calendar-day-timeheader {
+        column-span: all;
+    }
+
+    .calendar-day-colors {
+        position: absolute;
+
+        z-index: 1;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        opacity: 0.5;
+
+        cursor: pointer;
+
+        div {
+            flex: 1;
+        }
+    }
+
+    .calendar-day-color-16777215, .calendar-day-color-16711680 {
+        background-color: rgb(250, 0, 0);
+    }
+
+    .calendar-day-color-65280 {
+        background-color: green;
+    }
+
+    .calendar-day-color-255 {
+        background-color: blue;
+    }
+
+    .calendar-day-content {
+        
+        position: absolute;
+        z-index: 2;
+
+        display: flex;
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        pointer-events: none;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .calendar-day-grayed {
+        background-color: rgb(175, 175, 175);
+    }
+
+}
+
+.calendar-controls {
+    width: 100%;
+
+    padding: 10px 0 0 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        display: inline-block;
+
+        padding: 10px 5px;
+        border: 1px solid black;
+
+        &:hover {
+            color: white;
+            background-color: black;
+        }
+    }
+
+}
+
+@media screen and (max-width: 730px) {
+    
+    .provided-calendar {
+
+        .calendar-row-header .calendar-day {
+            .calendar-day-title {
+                writing-mode: vertical-rl;
+            }
+        }
+
+        .calendar-row {
+            height: 40px;
+        }
+
+        .calendar-row-header {
+            height: 98px;
+        }
+
+    }
+}

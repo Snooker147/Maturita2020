@@ -1,0 +1,57 @@
+.provided-page-index-cards {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .provided-page-card {
+        display: inline-block;
+    
+        text-align: center;
+
+        width: 300px;
+        min-height: 87px;
+    
+        padding: 10px;
+        margin: 5px;
+    
+        vertical-align: top;
+    
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.383);
+
+        background-color: white;
+    }
+
+    .provided-page-card-icon {
+        font-size: 24px;
+
+        text-align: center;
+    }
+
+    .provided-page-card-header {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .provided-page-card-text {
+        font-size: 0.8em;
+    }
+}
+
+.provided-page-index-offerings {
+
+    dl {
+        margin: 0 10px;
+
+        dt {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        dd {
+            font-size: 0.8em;
+            margin-left: 12px;
+        }
+    }
+
+}

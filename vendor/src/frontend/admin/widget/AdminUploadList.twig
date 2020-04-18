@@ -1,0 +1,60 @@
+<div class="upload-list">
+    
+    <div class="upload-list-items">
+
+        {% for item in items %}
+            <div class="upload-list-item">
+                <div class="upload-list-name">
+                    {% if type == "images" %}
+                        <img src="/uploads/images/{{item}}" alt="">
+                    {% endif %}
+
+                    <span>
+                        {{ item }}
+                    </span>
+                </div>
+    
+                <form action="/api.php?endpoint=media&method=delete&type=return" method="POST">
+                    <input type="hidden" name="type" value="{{type}}">
+                    <input type="hidden" name="name" value="{{item}}">
+
+                    <button type="submit">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </form>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="upload-list-new">
+        <form 
+            action="/api.php?endpoint=media&method=upload&type=return&returnURL=admin?page=uploads" 
+            method="POST"
+            enctype="multipart/form-data"
+        >
+            <input type="hidden" name="type" value="{{type}}">
+
+            {% if requireName %}
+                <div class="upload-list-name-input">
+                    <input type="text" name="name" placeholder="{{lang.get("AdminUploadListNamePlaceholder")}}">
+                </div>
+            {% else %}
+                <input type="hidden" name="name" value="{{type}}-{{utils.getFileReadableDate()}}">
+            {% endif %}           
+
+            <div class="upload-list-new-title">
+                {{ lang.get("AdminUploadListNewEntry") }}
+            </div>
+
+            <div class="upload-list-new-input">
+                <input type="file" name="file">
+            </div>
+
+            <div class="upload-button-container">
+                <input class="admin-button" type="submit" value="{{lang.get("ButtonUpload")}}">
+            </div>
+        </form>
+    </div>
+
+</div>

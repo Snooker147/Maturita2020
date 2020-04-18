@@ -1,0 +1,78 @@
+{% set pageNum = argsGet.getInt("page", NULL, NULL, 1) %}
+
+<!-- Redirects to the first page if user wants page less than 1 -->
+{% do utils.redirectIf(pageNum < 1, "article-list?page=1") %}
+
+{% set allArticles = database.paginateArticlesByLanguage(lang.getLanguage(), pageNum - 1, 2) %}
+{% set emptyArticles = allArticles.countPages == 0 %}
+
+<!-- Redirects to the first page if user wants page that does not exists -->
+{% if emptyArticles == false %}
+    {% do utils.redirectIf(pageNum > allArticles.countPages, "article-list?page=" ~ allArticles.countPages) %}
+{% endif %}
+
+{% set canPrev = pageNum > 1 %}
+{% set canNext = pageNum < allArticles.countPages %}
+
+{% set prevClass = utils.conClass(canPrev == false, "dummy", "provided-article-control-disabled") %}
+{% set nextClass = utils.conClass(canNext == false, "dummy", "provided-article-control-disabled") %}
+
+<div class="provided-article-list">
+
+    <h2>
+        {{ lang.get("PageArticleListHeader") }}
+    </h2>
+
+    {% for article in allArticles.items %}
+        <div class="provided-article-item">
+            <h3>
+                <i class="fas fa-angle-right"></i>
+                {{ article.HeaderText }}
+            </h3>
+
+            <div class="provided-article-list-content">
+                {{ article.HTML|raw }}
+            </div>
+
+            <div class="provided-article-list-footer">
+                <a href="/article?name={{article.UniqueName}}">
+                    More Details
+                </a>
+            </div>
+
+            <div class="provided-article-item-divider"></div>
+        </div>    
+    {% endfor %}
+
+    {% if emptyArticles == false %}
+        
+    <div class="provided-article-list-controls">
+        <a href="/article-list?page={{ pageNum - 1 }}" class="{{prevClass}}">
+            {{ lang.get("PageArticleListLinkPrev") }}
+        </a>
+
+        <span>
+            {{ lang.get("PageArticleListControlInfo", pageNum, allArticles.countPages) }}
+        </span>
+
+        <a href="/article-list?page={{ pageNum + 1 }}" class="{{nextClass}}">
+            {{ lang.get("PageArticleListLinkNext") }}
+        </a>
+    </div>
+    
+    {% else %}
+
+    {% 
+        include "widgets/PageDialog.twig" with 
+        {
+            "title": "PageArticleListEmpty",
+            "desc": "NoBreaksPageArticleListEmpty",
+            "icon": "fas fa-exclamation-triangle"
+        }
+    %}
+    
+    <div class="divider"></div>
+
+    {% endif %}
+
+</div>

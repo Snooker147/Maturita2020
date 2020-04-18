@@ -1,0 +1,45 @@
+{% set articleName = argsGet.getString("name", NULL, NULL, "") %}
+
+{% if argsGet.has("name") %}
+    {% set article = database.getArticleByLanguage(articleName) %}
+{% else %}
+    {% set article = NULL %}
+{% endif %}
+
+<div class="provided-page-article">
+    {% if article == NULL %}
+
+        {% 
+            include "widgets/PageDialog.twig" with 
+            {
+                "title": "PageArticleNotFound",
+                "desc": "NoBreaksPageArticleCouldNotBeFound",
+                "icon": "fas fa-exclamation-triangle"
+            }
+        %}
+
+    {% else %}
+    
+    {% if article.LanguageID != lang.getLanguage() %}
+        {% 
+            include "widgets/PageDialog.twig" with 
+            {
+                "title": "PageArticleTranslationMissing",
+                "desc": "NoBreaksPageArticleTranslationMissing",
+                "icon": "fas fa-exclamation-triangle"
+            }
+        %}
+    {% endif %}
+
+    <h2>
+        <i class="fas fa-angle-right"></i>
+        {{ article.HeaderText }}
+    </h2>
+
+    <p>
+        {{ article.HTML|raw }}
+    </p>
+
+    {% endif %}
+
+</div>

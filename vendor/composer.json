@@ -1,0 +1,15 @@
+{
+    "name": "snooker147/netoffice",
+    "type": "project",
+    "description": "Netoffice Source",
+    "authors": [
+        {
+            "name": "Dominik Rataj",
+            "email": "snooker147.server@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0",
+        "symfony/yaml": "^5.0"
+    }
+}

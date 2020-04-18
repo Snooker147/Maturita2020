@@ -1,0 +1,25 @@
+{% if  lang.getLanguage() != page.LanguageID %}
+    
+    {% 
+        include "widgets/PageDialog.twig" with 
+        {
+            "title": "PageUnavaibleInYourLanguage",
+            "desc": "NoBreaksPageUnavaibleInYourLanguage",
+            "addonInfo": "PageUnavaibleInYourLanguageThanks",
+            "icon": "fas fa-exclamation-triangle"
+        }
+    %}
+
+{% endif %}
+
+<div class="page-title">
+    <img src="/assets/imgs/logo.png" alt="">
+    
+    <h1>
+        {{ lang.get(page.HeaderText) }}
+    </h1>
+</div>
+
+<div class="content-actual-content">
+    {{ page.HTML|raw }}
+</div>

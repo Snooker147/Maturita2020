@@ -1,0 +1,11 @@
+# Each entry is translation key:
+# PageProvidedIndexOffer<OFFER_NAME>
+# PageProvidedIndexOffer<OFFER_NAME>Desc
+
+Offerings:
+    - NumOfClassRooms
+    - NumOfPCClassRooms
+    - Modern
+    - Digital
+    - Improving
+    - Practical

@@ -1,0 +1,86 @@
+.admin-ajax-template-details {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-ajax-template-control {
+
+    display: flex;
+
+    width: 36px;
+    height: 36px;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(255, 255, 255, 0.0);
+
+    transition: background-color 200ms;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(255, 255, 255, 0.5);
+    }
+
+    &.disabled {
+        color: gray;
+    }
+
+    &.left svg {
+        padding-right: 1px;
+    }
+
+    &.rights svg {
+        padding-left: 5px;
+    }
+}
+
+.admin-ajax-template-control-text {
+    display: inline-block;
+
+    padding: 0 15px;
+}
+
+.admin-ajax-header {
+    position: relative;
+
+    height: 50px;
+
+    background-color: rgb(180, 180, 180);
+}
+
+.admin-ajax-info {
+    color: black;
+
+    top: 50%;
+    left: 15px;
+    right: 15px;
+
+    transform: translateY(-50%);
+
+    position: absolute;
+
+    transition: opacity 200ms, left 200ms;
+
+    &.admin-info-hidden {
+        left: -15px;
+        opacity: 0;
+    }
+
+}
+
+.admin-ajax-refresh-btn {
+    position: absolute;
+
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    cursor: pointer;
+}

@@ -1,0 +1,252 @@
+<header>
+	<div class="header-content-wrapper">
+		<div class="header-logo">
+			<a href="/">
+				<img src="/assets/imgs/logo-header.png" alt="">
+			</a>
+		</div>
+	
+		<div class="header-buttons">
+
+			<div class="header-button-wrapper">
+				<button data-menu-target="menu-home-special">
+					<a href="/">
+						{{ lang.get("ButtonHome") }}
+					</a>
+				</button>
+			</div>
+			
+			{% for key in headerCfg|keys %}
+				<div class="header-button-wrapper">
+					<button data-menu-target="menu-{{key}}">
+						{{ lang.get("HeaderButton" ~ key) }}
+					</button>
+					
+					<div class="header-button-menu-content">
+						{% for link in headerCfg[key]|keys %}
+							<a href="{{headerCfg[key][link]}}">{{ lang.get("HeaderButton" ~ link) }}</a>
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		<button class="header-mobile-menu-btn">
+			<i class="fas fa-bars"></i>
+		</button>
+	</div>
+</header>
+
+<div class="header-mobile">
+	<div class="header-mobile-wrapper">	
+		<button class="header-mobile-menu-btn">
+			<i class="fas fa-bars"></i>
+		</button>
+
+		<div class="header-mobile-buttons">
+			{% for key in headerCfg|keys %}
+				<div class="header-mobile-button-wrapper">
+					<button data-menu-target="menu-{{key}}">
+						{{ lang.get("HeaderButton" ~ key) }}
+					</button>
+					
+					<div class="header-mobile-button-content">
+						{% for link in headerCfg[key]|keys %}
+							<a href="{{headerCfg[key][link]}}">{{ lang.get("HeaderButton" ~ link) }}</a>
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+<div class="header-invisible-divider"></div>
+
+<div class="header-video">
+	<div class="header-video-wrapper">
+		<video class="header-video-self" loop muted autoplay poster="/assets/videos/video-header.jpg">
+			<source src="/assets/videos/video-header.webm" type="video/webm">
+			<source src="/assets/videos/video-header.mp4" type="video/mp4">
+		</video>
+	</div>
+</div>
+
+<div class="content">
+	<div class="content-wrapper">
+		{{ pageHandler.getPage(lang, pageName) }}
+	</div>
+
+	<div class="content-wrapper-other">
+		<div class="content-other-item content-social-media">
+			<h3>
+				{{ lang.get("ContentOtherItemSocialMedia") }}
+			</h3>
+			
+			<div class="content-social-media-links">
+				<a href="{{mediaCfg.instagram}}" target="_blank">
+					<i class="fab fa-instagram"></i>
+					Instagram
+				</a>
+	
+				<a href="{{mediaCfg.twitter}}" target="_blank">
+					<i class="fab fa-twitter"></i>
+					Twitter
+				</a>
+	
+				<a href="{{mediaCfg.facebook}}" target="_blank">
+					<i class="fab fa-facebook-f"></i>
+					Facebook
+				</a>
+
+				<a href="{{mediaCfg.youtube}}" target="_blank">
+					<i class="fab fa-youtube"></i>
+					YouTube
+				</a>
+			</div>
+		</div>
+
+		<div class="content-other-item content-address">
+			<h3>
+				{{ lang.get("AddressListContact") }}
+			</h3>
+
+			<div class="content-address-list">
+				<span>
+					<i class="fas fa-map-marker-alt"></i> {{ lang.get("CompanyAddress") }}
+				</span>
+
+				<span>
+					<i class="fas fa-map"></i> {{ lang.get("CompanyPostCode") }}
+				</span>
+
+				<span title="{{lang.get("AddressListTelephone")}}">
+					<i class="fas fa-phone"></i> {{ lang.get("CompanyTelephone") }}
+				</span>
+
+				<span title="{{lang.get("AddressListFax")}}">
+					<i class="fas fa-fax"></i> {{ lang.get("CompanyFax") }}
+				</span>
+
+				<span title="{{lang.get("AddressListCountry")}}">
+					<i class="fas fa-globe"></i> {{ lang.get("CompanyCountry") }}
+				</span>
+				
+				<a href="/contact-us" title="{{lang.get("AddressListDirectContact")}}">
+					<span class="content-address-list-link">
+						<i class="far fa-envelope"></i>
+						{{ lang.get("AddressListContactButton") }}
+					</span>
+				</a>
+			</div>
+		</div>
+
+		<div class="content-other-item content-news">
+			<h3>
+				{{ lang.get("ArticlesHeader") }}
+			</h3>
+
+			{% for article in articles %}
+				<a href="/article?name={{article.UniqueName}}" class="content-news-item">
+					<h4>
+						{{ article.HeaderText }}
+					</h4>
+
+					<p>
+						{{ utils.toReadableDate(article.DateIssued) }}
+					</p>
+				</a>
+			{% endfor %}
+
+			<a href="/article-list" class="content-news-lower-text">
+				{{ lang.get("ArticlesSeeAll") }}
+			</a>
+		</div>
+		
+
+	</div>
+</div>
+
+<div class="footer-map">
+	<iframe src="{{mapURL}}" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</div>
+
+<footer>
+
+	<div class="footer-wrapper">
+
+		<div class="footer-lang-change">
+			<form action="/api?endpoint=users&method=set-user-language&type=return" method="POST">
+				<p> 
+					{{ lang.get("FooterChangeLanguageDesc") }}
+				</p>
+	
+				<select name="lang">
+					
+					{% for langName in lang.getRegisteredLanguages()|keys %}
+					
+					<option 
+						value="{{langName}}"
+						
+						{% if lang.getRegisteredLanguages()[langName] == lang.getLanguage() %}
+						selected="selected"
+						{% endif %}
+
+					>
+						{{ lang.get("FooterLangTypeName" ~ utils.ucFirst(langName)) }}
+					</option>
+						
+					{% endfor %}
+				</select>
+	
+				<input type="submit" value="{{ lang.get("ButtonChangeLanguage") }}">
+			</form>
+		</div>
+
+		<div class="footer-sponsors">
+			<p>
+				{{ lang.get("FooterSponsors") }}
+			</p>
+
+			<div class="footer-sponsors-links">
+				{% for key in sponsorsCfg|keys %}
+					<a href="{{sponsorsCfg[key].Link}}" title="{{sponsorsCfg[key].Label}}" target="_blank">
+						<img src="/assets/imgs/sponsors/{{key}}.png" alt="{{key}}">
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="footer-developer">
+			<p>
+				{{ lang.get("FooterCreatedBy") }} 
+			</p>
+
+			<a href="https://github.com/Snooker147" target="_blank">
+				<i class="fab fa-github"></i>
+				Github
+			</a>
+
+			<a href="https://twitter.com/MrSnooker_147" target="_blank">
+				<i class="fab fa-twitter"></i>
+				Twitter
+			</a>
+
+			<a href="https://facebook.com/dominik.rataj2" target="_blank">
+				<i class="fab fa-facebook-f"></i>
+				Facebook
+			</a>
+
+		</div>
+
+	</div>
+
+	<p class="footer-copyright">
+		{{ lang.get("FooterCopyright") }} &copy; {{ currentYear }} <br />
+		{{ lang.get("CompanyName") }} {{ lang.get("FooterAllRightsReceived") }}
+	</p>
+</footer>
+
+<div class="index-js-components">
+	{% include "widgets/IndexDialog.twig" %}
+</div>

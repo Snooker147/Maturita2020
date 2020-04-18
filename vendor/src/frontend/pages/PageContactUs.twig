@@ -1,0 +1,79 @@
+<div class="provided-page-contact-us">
+    <h1>
+        {{ lang.get("PageContactUsTitle") }}
+    </h1>
+
+    {% if argsGet.has("error") %}
+    
+        {% 
+            include "widgets/PageDialog.twig" with 
+            {
+                "title": "PageContactUsError",
+                "desc": argsGet.getString("error"),
+                "icon": "fas fa-exclamation-triangle"
+            }
+        %}
+
+    {% elseif argsGet.has("data") %}
+
+        {% 
+            include "widgets/PageDialog.twig" with 
+            {
+                "title": "PageContactUsDone",
+                "desc": "NoBreaksPageContactUsDoneDesc",
+                "addonInfo": "PageContactUsDoneAddonInfo",
+                "icon": "fas fa-check",
+                "type": "success"
+            }
+        %}
+
+    {% endif %}
+
+    <form 
+        class="provided-page-contact-form" 
+        method="POST" 
+        action="api?endpoint=feedback&method=submit&type=return&returnURL=contact-us"
+    >
+        
+        <div class="provided-page-contact-input-section">
+            <label for="contact-name">
+                {{ lang.get("LabelContactUsName") }}
+            </label>            
+            <input type="text" name="name" id="contact-name">
+        </div>
+
+        <div class="provided-page-contact-input-section">
+            <label for="contact-email">
+                {{ lang.get("LabelContactUsEmail") }}
+            </label>            
+            <input type="email" name="email" id="contact-email">
+        </div>
+
+        <div class="provided-page-contact-input-section">
+            <label for="contact-phone">
+                {{ lang.get("LabelContactUsTelephone") }}
+            </label>            
+            <input type="tel" name="phone" id="contact-phone">
+        </div>
+
+        <div class="provided-page-contact-input-section">
+            <label for="contact-message">
+                {{ lang.get("LabelContactUsMessage") }}
+            </label>            
+            <textarea name="message" id="contact-message" cols="30" rows="10"></textarea>
+        </div>
+
+        <p class="provided-page-contact-privacy-policy">
+            <input type="checkbox" name="checked" id="">
+            {{ lang.get("LabelContactUsPrivacyPolicy") }}
+        </p>
+
+        <p class="provided-page-contact-privacy-policy-desc">
+            {{ lang.get("NoBreaksLabelContactUsPrivacyPolicyDesc") }}
+        </p>
+
+        <div class="provided-page-contact-submit-btn">
+            <input type="submit" value="{{ lang.get("ContactUsSendBtn") }}">
+        </div>
+    </form>
+</div>

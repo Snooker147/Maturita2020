@@ -1,0 +1,19 @@
+<div class="admin-input-wrapper">
+    
+    <label for="{{id}}">
+        <i class="fas {{icon}}"></i>
+        <span>{{lang.get(title)}}</span>
+    </label>
+
+    <input 
+        id="{{id}}" 
+        type="{{type|default("text")}}" 
+        name="{{name}}" 
+        placeholder="{{lang.get(placeholder)}}"
+        value="{{value|default("")}}"
+        
+        {% if readOnly %}
+            readonly="true"
+        {% endif %}
+    >
+</div>

@@ -1,0 +1,20 @@
+<div class="admin-input-wrapper">
+    
+    <label for="{{id}}">
+        <i class="fas {{icon}}"></i>
+        <span>{{lang.get(title)}}</span>
+    </label>
+
+    <select name="{{name}}" id="{{id}}">
+        {% for option in options %}
+            <option 
+                value="{{option.value}}"
+                {% if selected|default("") == option.value %}
+                    selected="selected"
+                {% endif %}
+            >
+                {{ lang.get(option.name) }}
+            </option>
+        {% endfor %}
+    </select>
+</div>

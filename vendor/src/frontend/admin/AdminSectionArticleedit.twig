@@ -1,0 +1,77 @@
+{% set editingArticleId = argsGet.getInt("id", NULL, NULL, 0) %}
+{% set doc = db.getArticleByID(editingArticleId) %}
+
+{% if doc == NULL %}
+
+{% 
+    include "widget/AdminError.twig" with 
+    { 
+        "error": "EditArticleInvalid",
+        "closable": false,
+    } 
+%}
+    
+{% else %}
+
+{% 
+    include "widget/AdminForm.twig" with
+    {
+        "id": "article",
+
+        "title": "AdminEditArticle",
+        "actionMessage": "ArticleEdited",
+        "actionButtonMessage": "ButtonEditArticle",
+
+        "usage": "edit",
+        
+        "useDeleteButton": true,
+        "deleteMessage": "ArticleDeleted",
+        "deleteMessageButton": "ButtonDeleteArticle",
+        "deleteRedirect": "admin?page=article",
+
+        "useList": false,
+        "listHeader": "ArticleListHeader",
+        "editorPage": "articleedit",
+        "templateItemFields": ["UniqueName", "LanguageID"],
+
+        "editIdValue": doc.ID,
+
+        "useHtmlEditor": true,
+        "initialHtmlValue": doc.HTML,
+
+        "endpoint": "articles",
+        "createMethod": "create-article",
+        "paginateMethod": "get-articles",
+        "deleteMethod": "remove-article",
+
+        "inputs": [
+            {
+                "name": "unique",
+                "icon": "fa-id-card",
+                "title": "ArticleName",
+                "placeholder": "ArticleNamePlaceholder",
+                "bind": doc.UniqueName,
+            },
+            {
+                "name": "heading",
+                "icon": "fa-heading",
+                "title": "ArticleTitle",
+                "placeholder": "PageTitlePlaceholder",
+                "bind": doc.HeaderText,
+            }
+        ],
+        
+        "inputEnums": [
+            {
+                "name": "languageid",
+                "icon": "fa-flag",
+                "title": "ArticleLanguage",
+                "options": lang.getRegisteredLanguagesAsSortifiedArray(),
+                "bind": doc.LanguageID
+            }
+        ]
+
+    }
+%}
+
+{% endif %}

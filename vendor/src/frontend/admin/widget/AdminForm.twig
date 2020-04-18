@@ -1,0 +1,146 @@
+{% set isReadOnly = formReadOnly|default(false) %}
+
+<div class="admin-section admin-form-section">
+
+    <h3 class="admin-form-title">
+        {{ lang.get(title) }}
+    </h3>
+
+    <form 
+        data-id="{{id}}"
+        data-use-list="{{useList ? 1 : 0}}"
+        data-use-html="{{useHtmlEditor ? 1 : 0}}"
+        data-use-delete="{{useDeleteButton ? 1 : 0}}"
+        class="admin-form" 
+        id="{{id}}-form" 
+        action="/api?endpoint={{endpoint}}&method={{createMethod}}" 
+        method="POST"
+    >
+        <input type="hidden" name="usage" value="{{usage}}">
+        
+        {% if usage == "edit" %}
+            <input type="hidden" name="id" value="{{editIdValue}}">
+        {% endif %}
+
+        {% if useHtmlEditor %}
+            <input type="hidden" name="html" value="{{initialHtmlValue}}" id="{{id}}-html-editor-dest">
+        {% endif %}
+        
+        {% for input in inputs %}
+            {% 
+                include "widget/AdminInput.twig" with
+                {
+                    "id": "id-input-" ~ input.name,
+                    "icon": input.icon,
+                    "name": input.name,
+                    "title": input.title,
+                    "type": input.type|default("text"),
+                    "placeholder": input.placeholder|default("AdminFormDefaultPlaceholder"),
+                    "value": input.bind,
+                    "readOnly": isReadOnly
+                }
+            %}    
+        {% endfor %}
+
+        {% for input in inputEnums %}
+            {% 
+                include "widget/AdminInputEnum.twig" with 
+                { 
+                    "id": "id-input-" ~ input.name,
+                    "icon": input.icon,
+                    "name": input.name, 
+                    "title": input.title,
+                    "options": input.options,
+                    "selected": input.bind,
+                    "readOnly": isReadOnly
+                }
+            %}   
+        {% endfor %}
+
+        {% for input in inputTextAreas %}
+            <div class="admin-input-wrapper">
+                <label for="{{input.id}}">
+                    <i class="fas {{input.icon}}"></i>
+                    <span>{{lang.get(input.title)}}</span>
+                </label>
+                
+                <textarea 
+                    class="admin-input-textarea"
+                    name="{{input.name}}" 
+                    id="{{input.id}}" 
+                    {% if isReadOnly %}
+                        readonly="true"
+                    {% endif %}
+                    cols="30" 
+                    rows="10">{{ input.bind }}</textarea>
+            </div>
+        {% endfor %}
+        
+        {% if useHtmlEditor %}
+            <div class="admin-form-html-editor-wrapper">
+                <div id="{{id}}-html-editor"></div>
+            </div>
+        {% endif %}
+        
+        {% if formReadOnly|default(false) == false %}
+            {% 
+                include "widget/AdminSubmit.twig" with
+                {
+                    "id": id ~ "-form-btn",
+                    "formId": id ~ "-form",
+                    "success": actionMessage|default("AdminFormSuccess"),
+                    "title": actionButtonMessage|default("AdminFormDoAction")
+                }    
+            %}
+        {% endif %}
+    </form>
+
+    <div class="divider"></div>
+
+    {% if useDeleteButton %}
+
+        <form id="delete-{{id}}-form" action="/api?endpoint={{endpoint}}&method={{deleteMethod}}" method="POST">
+            <input type="hidden" name="id" value="{{editIdValue}}">
+
+            {% 
+                include "widget/AdminSubmit.twig" with
+                {
+                    "id": "delete-" ~ id ~ "-form-btn",
+                    "formId": "delete-" ~ id ~ "-form",
+                    "success": deleteMessage|default("AdminFormDeleted"),
+                    "successRedirect": deleteRedirect|default("admin"),
+                    "title": deleteMessageButton|default("AdminFormDeleteBtn")
+                }    
+            %}
+        </form>
+
+    {% elseif useList %}
+        
+        <div class="template admin-form-item" id="{{id}}-ajax-template">
+            
+            {% for itemField in templateItemFields %}
+                <span data-field="{{itemField}}"></span>
+            {% endfor %}
+
+            <a 
+                href="admin?page={{editorPage}}&id=" 
+                data-attr-field-name="ID"
+                data-attr-field-dest="href"
+            >
+                <i class="fas fa-edit"></i>
+            </a>
+        </div>
+        
+        {% 
+            include "widget/AdminAjaxTemplate.twig" with
+            {
+                "id": id ~ "-ajax",
+                "url": "api?endpoint=" ~ endpoint ~ "&method=" ~ paginateMethod,
+                "pageGetParam": id ~ "-page",
+                "header": listHeader
+            } 
+        %}
+
+    {% endif %}
+
+</div>

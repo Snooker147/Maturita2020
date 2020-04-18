@@ -1,0 +1,32 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="shortcut icon" type="image/x-icon" sizes="16x16" href="/assets/imgs/logo-favicon-16.ico">
+    <link rel="shortcut icon" type="image/x-icon" sizes="32x32" href="/assets/imgs/logo-favicon-32.ico">
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/imgs/logo-favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/imgs/logo-favicon-32.png">
+    <link rel="icon" type="image/png" sizes="228x228" href="/assets/imgs/logo-favicon-228.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/imgs/logo-favicon-192.png">
+
+    <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/imgs/logo-favicon-120.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/imgs/logo-favicon-180.png">
+    
+    <title>
+        {{ title }}
+    </title>
+
+    <!-- Script loading -->
+    <script defer src="/assets/fontawesome/js/all.js"></script>
+    <script defer src="/assets/{{script}}.js"></script>
+
+    <!-- CSS Loading -->
+    <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+
+    {% if isRelease %}
+        <link rel="stylesheet" href="/assets/{{css}}.css">
+    {% endif %}
+    
+</head>

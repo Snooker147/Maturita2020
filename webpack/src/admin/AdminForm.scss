@@ -1,0 +1,43 @@
+.admin-form-item {
+    position: relative;
+
+    height: 52px;
+    line-height: 52px;
+
+    padding: 0 15px;
+
+    &:hover {
+        background-color: rgb(156, 156, 156);
+    }
+
+    a {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+
+        transform: translateY(-50%);
+    }
+}
+
+.admin-input-textarea {
+    
+}
+
+.admin-ajax-template-destination {
+    height: 52px*5;
+    border-collapse: collapse;
+}
+
+
+
+.admin-form-html-editor-wrapper {
+    background-color: white;
+    color: black;
+
+    height: 559px;
+    overflow-y: hidden;
+
+    table div {
+        color: black;
+    }
+}

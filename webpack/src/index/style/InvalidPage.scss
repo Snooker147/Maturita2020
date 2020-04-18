@@ -1,0 +1,38 @@
+.invalid-page {
+
+    overflow-x: hidden;
+
+    h2, h3 {
+        margin: 0;
+    }
+
+    h3 {
+        margin-top: 5px;
+        font-weight: normal;
+        font-style: italic;
+    }
+
+    a {
+        float: right;
+        color: rgb(102, 102, 255);
+
+        padding: 5px 10px;
+
+        border: 1px solid rgb(102, 102, 255);
+
+        transition: background-color 200ms, color 200ms;
+
+        &:hover {
+            color: white;
+            background-color: rgb(102, 102, 255);    
+        }
+    }
+
+    img {
+        display: block;
+
+        margin: 10px 0;
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,23 @@
+<div class="template admin-form-item" id="feedback-ajax-template">
+            
+    <span data-field="ID"></span>
+    <span data-field="EMail"></span>
+    
+    <a 
+        href="admin?page=feedbackdetail&id=" 
+        data-attr-field-name="ID"
+        data-attr-field-dest="href"
+    >
+        <i class="fas fa-edit"></i>
+    </a>
+</div>
+
+{% 
+    include "widget/AdminAjaxTemplate.twig" with
+    {
+        "id": "feedback-ajax",
+        "url": "api?endpoint=feedback&method=get-feedbacks",
+        "pageGetParam": "feedback-page",
+        "header": "AdminFeedbackListHeader"
+    } 
+%}

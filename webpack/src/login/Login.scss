@@ -1,0 +1,107 @@
+@import "../Shared.scss";
+
+.login-error {
+    position: fixed;
+
+    z-index: 1;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: 0 15px;
+
+    background-color: rgb(255, 129, 129);
+
+    transition: opacity 100ms;
+
+    p button {
+        color: white;
+        position: absolute;
+
+        top: 50%;
+        right: 15px;
+
+        transform: translateY(-50%);
+
+        transition: color 100ms;
+        
+        &:hover {
+            color: black;
+        }
+    }
+}
+
+.login-container {
+    position: fixed;
+    
+    left: 0;
+    right: 0;
+
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.login {
+    img {
+        margin: 20px 0;
+    }
+}
+
+.login-input-section {
+    padding-bottom: 10px;
+}
+
+.login-input-section-button {
+    display: flex;
+
+    .login-btn {
+        flex-grow: 1;    
+        padding: 10px 20px;
+        cursor: pointer;
+
+        background-color: rgb(165, 165, 165); 
+        
+        transition: background-color 200ms;
+
+        &:hover {
+            background-color: rgb(100, 100, 100); 
+        }
+    }
+}
+
+.login-container {
+
+    .input-container {
+
+        display: flex;
+        align-items: center;
+
+        padding: 8px 16px;
+        border: 1px solid black;
+        border-radius: 5px;
+
+        svg {
+            padding: 0 5px;
+        }
+
+        input {
+            padding: 5px 10px;
+            
+            flex-grow: 1;
+        }
+    }
+
+}
+
+.login-copyright {
+    font-size: 12px;
+
+    margin-top: 20px;
+}

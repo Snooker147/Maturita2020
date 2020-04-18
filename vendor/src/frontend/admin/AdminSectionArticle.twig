@@ -1,0 +1,60 @@
+{% 
+    include "widget/AdminForm.twig" with
+    {
+        "id": "article",
+
+        "title": "AdminCreateArticle",
+        "actionMessage": "ArticleCreated",
+        "actionButtonMessage": "ButtonCreateArticle",
+
+        "usage": "create",
+        
+        "useDeleteButton": false,
+        "deleteMessage": "ArticleDeleted",
+        "deleteMessageButton": "ButtonDeleteArticle",
+        "deleteRedirect": "admin?page=article",
+
+        "useList": true,
+        "listHeader": "ArticleListHeader",
+        "editorPage": "articleedit",
+        "templateItemFields": ["LanguageID", "UniqueName"],
+
+        "editIdValue": doc.ID,
+
+        "useHtmlEditor": true,
+        "initialHtmlValue": doc.HTML,
+
+        "endpoint": "articles",
+        "createMethod": "create-article",
+        "paginateMethod": "get-articles",
+        "deleteMethod": "remove-article",
+
+        "inputs": [
+            {
+                "name": "unique",
+                "icon": "fa-id-card",
+                "title": "ArticleName",
+                "placeholder": "ArticleNamePlaceholder",
+                "bind": doc.UniqueName,
+            },
+            {
+                "name": "heading",
+                "icon": "fa-heading",
+                "title": "ArticleTitle",
+                "placeholder": "PageTitlePlaceholder",
+                "bind": doc.HeaderText,
+            }
+        ],
+        
+        "inputEnums": [
+            {
+                "name": "languageid",
+                "icon": "fa-flag",
+                "title": "ArticleLanguage",
+                "options": lang.getRegisteredLanguagesAsSortifiedArray(),
+                "bind": doc.LanguageID
+            }
+        ]
+
+    }
+%}

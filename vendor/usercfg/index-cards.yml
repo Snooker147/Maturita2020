@@ -1,0 +1,12 @@
+# Each entry is translation key:
+# PageProvidedIndexCard<SUBJECT_NAME>Header
+# The value is the the font-awesome class names
+# fas fa-code
+# https://fontawesome.com/icons/code?style=solid
+
+Programming: fas fa-code
+Database: fas fa-database
+Web: fab fa-html5
+Software: fas fa-blender
+OperatingSystems: fab fa-windows
+PCSystems: fas fa-desktop

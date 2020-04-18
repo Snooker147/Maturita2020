@@ -1,0 +1,111 @@
+@import "../Shared.scss";
+
+@import "~suneditor/dist/css/suneditor.min.css";
+
+html, body {
+    background-color: black;
+
+    color: white;
+}
+
+.admin-wrapper {
+    display: flex;
+}
+
+.admin-header {
+    background-color: blue;
+
+    a {
+        display: inline-block;
+        min-width: 120px;
+
+        text-align: center;
+
+        padding: 15px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.787);
+        }
+    }
+}
+
+.admin-body {
+    max-width: 800px;
+    width: 100%;
+
+    margin: 20px auto;
+
+    h1, h2, p {
+        margin: 0;
+    }
+
+    .admin-section {
+        margin-top: 20px;
+    }
+}
+
+.admin-button-container {
+    position: relative;
+    
+    min-height: 36px;
+
+    margin: 40px 0 0 0;
+
+    .admin-button {
+        position: absolute;
+
+        right: 0;
+        top: 50%;
+
+        transform: translateY(-50%);
+    }
+
+    span {
+        position: absolute;
+    
+        top: 50%;
+    
+        transform: translateY(-50%);
+
+        opacity: 0;
+        padding-left: 0;
+
+        transition: opacity 200ms, padding-left 200ms;
+
+        color: green;
+    }
+
+    .span-shown {
+        opacity: 1;
+        padding-left: 15px;
+    }
+}
+
+.admin-button {
+
+    padding: 10px 20px;
+
+    background-color: rgb(51, 51, 51);
+    color: white;
+
+    transition: outline 200ms;
+    outline: 1px solid transparent;
+
+    cursor: pointer;
+
+    &:hover {
+        outline: 1px solid white;
+    }
+}
+
+@import "./AdminInput.scss";
+@import "./AdminDialog.scss";
+@import "./AdminAjaxTemplate.scss";
+@import "./AdminForm.scss";
+
+@import "./AdminUsers.scss";
+@import "./AdminError.scss";
+@import "./AdminPage.scss";
+@import "./AdminArticles.scss";
+@import "./AdminCalendar.scss";
+@import "./AdminUploads.scss";

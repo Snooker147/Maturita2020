@@ -1,0 +1,44 @@
+{% include "Header.twig" with { "title": "Netoffice Login", "script": "login", "css": "login" } %}
+
+{% if hasLoginError %}
+    <div class="login-error">
+        <p>
+            {{ lang.get("LoginError", lang.get(loginError)) }}
+
+            <button id="login-error-close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </p>
+    </div>
+{% endif %}
+
+<form class="login-container" 
+    action="/api?endpoint=users&method=login&type=return&returnURLFailed={{redirectToFailedEncoded}}&returnURLSuccess={{redirectTo}}" method="POST"
+>
+
+    <div class="login">
+        <img src="/assets/imgs/logo-login.png" alt="">
+
+        <div class="login-input-section">
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" placeholder="{{lang.get("Username")}}">
+            </div>
+        </div>
+
+        <div class="login-input-section">
+            <div class="input-container">
+                <i class="fas fa-key"></i>
+                <input type="password" name="password" placeholder="{{lang.get("Password")}}">
+            </div>
+        </div>
+
+        <div class="login-input-section login-input-section-button">
+            <input class="login-btn" type="submit" value="{{lang.get("ButtonLogin")}}">
+        </div>
+    </div>
+
+    <div class="login-copyright">
+        &copy; {{ currentYear }} {{ lang.get("CompanyName") }}
+    </div>
+</form>

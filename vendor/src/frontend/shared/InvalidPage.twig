@@ -1,0 +1,26 @@
+{% do utils.set("title", lang.get("DomainTitleInvalidPage")) %}
+
+<div class="invalid-page">
+    
+    <h2>
+        {{ lang.get("PageNotFoundHeader") }}
+    </h2>
+    
+    <img src="/assets/imgs/invalid-page.gif" alt="{{ lang.get("PageNotFoundAlt") }}">
+    
+    <h3>
+        {{ lang.get("PageNotFoundSubHeader") }}
+    </h3>
+
+    <p>
+        {{ lang.get("PageNotFoundMessage") }}
+    </p>
+
+    <div class="divider"></div>
+
+    <a href="/">
+        {{ lang.get("PageNotFoundLink") }}
+    </a>
+
+    <div class="clear"></div>
+</div>

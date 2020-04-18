@@ -1,0 +1,161 @@
+$contentMaxWidth: 1000px;
+$contentStartPaddingWidth: $contentMaxWidth + 100px;
+
+$contentPadding: 15px;
+$contentOtherWidth: 250px;
+$contentPageWidth: $contentMaxWidth - $contentOtherWidth - $contentPadding * 4;
+
+.content {
+    display: flex;
+
+    max-width: $contentMaxWidth;
+
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    margin: 2px auto;
+    vertical-align: top;
+}
+
+.content-wrapper {
+    max-width: $contentPageWidth;
+    width: 100%;
+
+    padding: $contentPadding;
+    margin: 10px $contentPadding;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.281);
+
+    background-color: white;
+}
+
+.content-wrapper-other {
+    max-width: $contentOtherWidth;
+    margin: 10px 0;
+    width: 100%;
+    
+    h3 {
+        margin: 5px 0;
+    }
+}
+
+.content-other-item {
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.281);
+
+    padding: 5px 10px;
+
+    background-color: white;
+
+}
+
+.content-social-media-links {
+    margin-top: 10px;
+
+    a {
+        display: block;
+
+        border: 1px solid $headerBackground;
+        color: $headerBackground;
+
+        margin: 5px 0;
+        padding: 5px 10px;
+
+        transition: color 200ms, background-color 200ms;
+
+        svg {
+            width: 20px !important;
+        }
+
+        &:hover {
+            color: white;
+            background-color: $headerBackground;
+        }
+    }
+}
+
+.content-address {
+    margin: $contentPadding 0;
+    padding-bottom: 10px;
+    
+    span {
+        display: block;
+        padding: 8px 4px;
+
+        svg {
+            width: 20px !important;
+            padding-right: 5px;
+        }
+    }
+}
+
+.content-address-list-link {
+
+    transition: background-color 200ms, padding-left 200ms;
+
+    &:hover {
+        padding-left: 15px;
+        background-color: $headerBackground;
+    }
+
+}
+
+.content-news {
+    margin: $contentPadding 0;
+}
+
+.content-news-item {
+
+    display: block;
+    margin: 15px 0;
+    padding: 5px 10px;
+
+    border: 1px solid white;
+    transition: border 200ms, background-color 200ms, color 200ms;
+
+    &:hover {
+        border: 1px solid black;
+    }
+
+    h4 {
+        margin: 0;
+    }
+
+    p {
+        font-size: 0.8rem;
+
+        color: rgb(83, 83, 83);
+
+        margin: 0;
+    }
+
+}
+
+.content-news-lower-text {
+    display: block;
+    text-align: center;
+
+    border: 1px solid $headerBackground;
+    color: $headerBackground;
+
+    font-size: 0.8em;
+
+    padding: 3px 0;
+    margin-bottom: 4px;
+
+    transition: background-color 200ms, color 200ms;
+
+    &:hover {
+        background-color: $headerBackground;
+        color: white;
+    }
+}
+
+@media screen and (max-width: $contentStartPaddingWidth) {
+    .content {
+        padding: 0 20px;
+    } 
+}

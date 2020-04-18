@@ -1,0 +1,56 @@
+{
+    "mode": "development",
+
+    "sitename": {
+        "development": "localhost",
+        "release": "yourdomain.com"
+    },
+
+    "databaseIP": {
+        "development": "localhost",
+        "release": "localhost"
+    },
+
+    "databasePort": {
+        "development": 3306,
+        "release": 3306
+    },
+
+    "databaseUser": {
+        "development": "root",
+        "release": "root"
+    },
+    
+    "databasePassword": {
+        "development": "",
+        "release": "strongpassword"
+    },
+
+    "databaseName": {
+        "development": "netoffice", 
+        "release": "netoffice"
+    },
+
+    "attemptToCreateDatabase": {
+        "development": true,
+        "release": false
+    },
+
+    "forceDatabaseTableRecreation": {
+        "development": false,
+        "release": false
+    },
+
+    "rootUsername": "root",
+
+    "rootPassword": {
+        "development": "root",
+        "release": "averystrongpassword"
+    },
+
+    "mapsURL": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d392.12179124407055!2d18.427985469931993!3d49.87663367639296!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc1f2526c69235f38!2sSecondary%20School%20of%20NET%20Office%20Orlova!5e1!3m2!1sen!2scz!4v1581006568479!5m2!1sen!2scz",
+    
+    "defaultLanguage": 0,
+
+    "languages": "czech,english"
+}

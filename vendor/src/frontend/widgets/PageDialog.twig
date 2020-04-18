@@ -1,0 +1,18 @@
+<div class="page-dialog page-dialog-{{type|default('error')}}">
+    <p class="page-dialog-title">
+        <i class="{{icon}}"></i>
+        {{ lang.get(title) }}
+    </p>
+
+    <p>
+        {{ lang.get(desc) }}
+    </p>
+
+    {% if addonInfo|default(false) %}
+    
+    <p class="page-dialog-addon-info">
+        {{ lang.get(addonInfo) }}
+    </p>
+    
+    {% endif %}
+</div>

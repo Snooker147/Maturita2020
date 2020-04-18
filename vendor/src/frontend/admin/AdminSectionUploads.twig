@@ -1,0 +1,40 @@
+{% set images = serverMetaData.getUploaded("images") %}
+{% set docs = serverMetaData.getUploaded("docs") %}
+{% set error = argsGet.getString("error", null, null, "") %}
+
+{% if (error is empty) == false %}
+
+<div class="upload-error-wrapper">
+    
+    {% 
+        include "widget/AdminError.twig" with 
+        { 
+            "error": lang.get(error),
+            "closable": false,
+        } 
+    %}
+</div>
+
+
+{% endif %}
+
+<h2>{{lang.get("AdminUploadImagesTitle")}}</h2>
+{% 
+    include "widget/AdminUploadList.twig" 
+    with {
+        "items": images,
+        "type": "images"
+    }    
+%}
+
+<div class="divider upload-divider"></div>
+
+<h2>{{lang.get("AdminUploadDocsTitle")}}</h2>
+{% 
+    include "widget/AdminUploadList.twig" 
+    with {
+        "items": docs,
+        "type": "docs",
+        "requireName": true
+    }    
+%}

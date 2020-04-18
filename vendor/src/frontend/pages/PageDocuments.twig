@@ -1,0 +1,13 @@
+{% set docs = serverMetaData.getUploaded("docs") %}
+
+<div class="provided-documents">
+    <h1>{{ lang.get("PageDocumentsTitle") }}</h1>
+
+    <div class="provided-documents-items">
+        {% for doc in docs %}
+            <a href="/uploads/docs/{{doc}}">
+                {{ lang.get(utils.getHumanReadableFileName(doc)) }}
+            </a>
+        {% endfor %}    
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="admin-button-container">
+    <span>{{ lang.get(success) }}</span>
+    <input
+        id="{{id}}" 
+        data-form-id="{{formId}}" 
+        type="submit" 
+        class="admin-button" 
+        value="{{lang.get(title)}}"
+        
+        {% if successRedirect %}
+        data-success-redirect="{{successRedirect}}"
+        {% endif %}
+    >
+
+</div>

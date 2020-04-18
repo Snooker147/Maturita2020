@@ -1,0 +1,91 @@
+{% set month = argsGet.getInt("month", NULL, NULL, utils.getCurrentMonth()) %}
+{% set year = argsGet.getInt("year", NULL, NULL, utils.getCurrentYear()) %}
+
+{% set month = utils.clamp(month, 1, 12) %}
+{% set nextMonth = month + 1 %}
+{% set prevMonth = month - 1 %}
+
+{% set year = utils.clamp(year, 2010, 2030) %}
+{% set nextYear = year %}
+{% set prevYear = year %}
+
+{% set events = database.getEventsByDate(month, year) %}
+{% set weeks = serverMetaData.computeEventTimestempArray(month, year) %}
+
+{% if month >= 12 %}
+    {% set nextMonth = 1 %}
+    {% set nextYear = year + 1 %}
+
+    {% set prevMonth = month - 1 %}
+{% elseif month <= 1 %}
+    {% set prevMonth = 12 %}
+    {% set prevYear = year - 1 %}
+{% endif %}   
+
+<div class="calendar-title-header">
+    <i class="far fa-calendar-alt"></i>
+    {{ lang.get("Month" ~ (month - 1)) }} {{ year }}
+</div>
+
+<div class="provided-calendar">
+
+
+    {% 
+        include "pages/widgets/PageCalendarEntry.twig"
+        with {
+            "week": [ 0, 1, 2, 3, 4, 5, 6 ],
+            "header": true,
+        }
+    %}
+
+    {% for week in weeks %}
+        {% 
+            include "pages/widgets/PageCalendarEntry.twig"
+            with {
+                "week": week,
+                "header": false,
+                "currentMonth": month,
+                "events": events
+            }
+        %}
+    {% endfor %}
+
+</div>
+
+<div class="calendar-controls">
+    <a href="/calendar?month={{prevMonth}}&year={{prevYear}}">
+        {{ lang.get("Month" ~ (prevMonth - 1)) }} {{ prevYear }}
+    </a>
+
+    <a href="/calendar?month={{nextMonth}}&year={{nextYear}}">
+        {{ lang.get("Month" ~ (nextMonth - 1)) }} {{ nextYear }}
+    </a>
+</div>
+
+<div class="index-hidden-components">
+    <div id="calendar-dialog-event-template" class="dialog-event-template">
+        <div class="dialog-event-details">
+            <div>
+                <span class="dialog-event-info">
+                    {{ lang.get("CalendarDialogBegins") }}
+                </span>
+                <span class="dialog-event-value" data-key="event.DateBegin">
+                    
+                </span>
+            </div>
+
+            <div>
+                <span class="dialog-event-info">
+                    {{ lang.get("CalendarDialogEnds") }}
+                </span>
+                <span class="dialog-event-value" data-key="event.DateEnd">
+                    
+                </span>
+            </div>
+        </div>
+
+        <p class="dialog-event-html" data-key="article.HTML">
+
+        </p>
+    </div>
+</div>

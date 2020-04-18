@@ -1,0 +1,104 @@
+@font-face  {
+    font-family: 'Roboto';
+    font-style: normal;
+    src: url(../assets/material-font-roboto.ttf);
+}
+
+@font-face  {
+    font-family: 'Open Sans';
+    font-style: normal;
+    src: url("../assets/Open Sans.ttf");
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/material-font-icons.woff2) format('woff2');
+}
+  
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    font-family: "Open Sans", Roboto, Tahoma, Geneva, Verdana, sans-serif;
+    //font-family: Roboto, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    background-color: white;
+
+    margin: 0;
+    padding: 0;
+}
+
+div, p, input, button {
+    font-size: 16px;
+}
+
+select {
+    font-size: 15px;
+}
+
+form {
+    margin: 0;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    outline: none;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    color: black;
+    outline: none;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
+.template {
+    display: none;
+    visibility: hidden;
+}
+
+.divider {
+    display: block;
+
+    border-bottom: 1px solid rgb(133, 133, 133);
+
+    margin: 20px 0;
+}
+
+.clear {
+    clear: both;
+}

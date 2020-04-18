@@ -1,0 +1,32 @@
+#users {
+
+    min-height: 52*5px;
+    
+    border-collapse: collapse;
+
+}
+
+.admin-user {
+    position: relative;
+
+    padding: 15px 20px;
+
+    transition: background-color 200ms;
+
+    &:hover {
+        background-color: rgb(73, 73, 73);
+    }
+
+    a {
+        position: absolute;
+
+        top: 50%;
+        right: 15px;
+
+        transform: translateY(-50%);
+
+        &:hover {
+            color: gray;
+        }
+    }
+}

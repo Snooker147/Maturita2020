@@ -1,0 +1,102 @@
+{% set editingCalendarId = argsGet.getInt("id", NULL, NULL, 0) %}
+{% set doc = db.getEventByID(editingCalendarId) %}
+
+{% if doc == NULL %}
+
+{% 
+    include "widget/AdminError.twig" with 
+    { 
+        "error": "EditEventInvalid",
+        "closable": false,
+    } 
+%}
+    
+{% else %}
+
+{% set docDateBegin = utils.toReadableDate(doc.DateBegin) %}
+{% set docDateEnd = utils.toReadableDate(doc.DateEnd) %} 
+
+{% 
+    include "widget/AdminForm.twig" with
+    {
+        "id": "calendar",
+
+        "title": "AdminEditCalendarEvent",
+        "actionMessage": "CalendarEventEdited",
+        "actionButtonMessage": "ButtonEditCalendarEvent",
+
+        "usage": "edit",
+        
+        "useDeleteButton": true,
+        "deleteMessage": "CalendarEventDeleted",
+        "deleteMessageButton": "ButtonDeleteCalendarEvent",
+        "deleteRedirect": "admin?page=calendar",
+
+        "useList": false,
+        "listHeader": "CalendarEventListHeader",
+        "editorPage": "calendaredit",
+        "templateItemFields": ["TitleText"],
+
+        "editIdValue": doc.ID,
+
+        "useHtmlEditor": false,
+        "initialHtmlValue": "",
+
+        "endpoint": "events",
+        "createMethod": "create-event",
+        "paginateMethod": "get-events",
+        "deleteMethod": "delete-event",
+
+        "inputs": [
+            {
+                "id": "start-date",
+                "icon": "fa-calendar-week",
+                "name": "start",
+                "title": "CalendarEventStart",
+                "placeholder": "CalendarEventStartPlaceholder",
+                "bind": docDateBegin,
+            },
+            {
+                "id": "end-date",
+                "icon": "fa-calendar-check",
+                "name": "end",
+                "title": "CalendarEventEnd",
+                "placeholder": "CalendarEventEndPlaceholder",
+                "bind": docDateEnd,
+            },
+            {
+                "id": "titletext",
+                "icon": "fa-heading",
+                "name": "titletext",
+                "title": "CalendarEventTitle",
+                "placeholder": "CalendarEventTitlePlaceholder",
+                "bind": doc.TitleText,
+            },
+            {
+                "id": "article-url",
+                "icon": "fa-id-card",
+                "name": "article-name",
+                "title": "CalendarEventArticle",
+                "placeholder": "CalendarEventArticlePlaceholder",
+                "bind": doc.ArticleUniqueName,
+            },
+        ],
+        
+        "inputEnums": [
+            {
+                "id": "color",
+                "icon": "fa-flag", 
+                "name": "color", 
+                "title": "CalendarEventColor",
+                "options": [
+                    { name: "ColorRed", value: "ff0000" },
+                    { name: "ColorGreen", value: "00ff00" },
+                    { name: "ColorBlue", value: "0000ff" },
+                ],
+                "bind": doc.Color,
+            }
+        ]
+    }
+%}
+
+{% endif %}   

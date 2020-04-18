@@ -1,0 +1,92 @@
+{% set feedbackId = argsGet.getInt("id", NULL, NULL, 0) %}
+{% set doc = db.getFeedbackByID(feedbackId) %}
+
+{% if doc == NULL %}
+
+{% 
+    include "widget/AdminError.twig" with 
+    { 
+        "error": "DetailFeedbackInvalid",
+        "closable": false,
+    } 
+%}
+    
+{% else %}
+
+{% 
+    include "widget/AdminForm.twig" with
+    {
+        "id": "calendar",
+        "formReadOnly": true,
+
+        "title": "AdminDetailFeedback",
+        "actionMessage": "--",
+        "actionButtonMessage": "--",
+
+        "usage": "delete",
+        
+        "useDeleteButton": true,
+        "deleteMessage": "FeedbackDeleted",
+        "deleteMessageButton": "ButtonDeleteFeedback",
+        "deleteRedirect": "admin?page=feedback",
+
+        "useList": false,
+
+        "editIdValue": doc.ID,
+
+        "useHtmlEditor": false,
+        "initialHtmlValue": "",
+
+        "endpoint": "feedback",
+        "createMethod": "create-feedback",
+        "paginateMethod": "get-feedbacks",
+        "deleteMethod": "delete-feedback",
+
+        "inputs": [
+            {
+                "id": "date-issued",
+                "icon": "fa-calendar-week",
+                "name": "date-issued",
+                "title": "FeedbackIssued",
+                "placeholder": "FeedbackIssuedPlaceholder",
+                "bind": doc.DateIssued,
+            },
+            {
+                "id": "firstnameandsurname",
+                "icon": "fa-heading",
+                "name": "firstnameandsurname",
+                "title": "FeedbackName",
+                "placeholder": "FeedbackNamePlaceholder",
+                "bind": doc.FirstNameAndSurname,
+            },
+            {
+                "id": "email",
+                "icon": "fa-envelope",
+                "name": "FeedbackEMail",
+                "title": "FeedbackEMail",
+                "placeholder": "FeedbackEMailPlaceholder",
+                "bind": doc.EMail,
+            },
+            {
+                "id": "phone-number",
+                "icon": "fa-phone",
+                "name": "phone-number",
+                "title": "FeedbackPhone",
+                "placeholder": "FeedbackPhonePlaceholder",
+                "bind": doc.PhoneNumber,
+            },
+        ],
+        
+        "inputTextAreas": [
+            {
+                "id": "message",
+                "icon": "fa-sticky-note",
+                "name": "message",
+                "title": "FeedbackMessage",
+                "bind": doc.Message
+            }
+        ],
+    }
+%}
+
+{% endif %}   

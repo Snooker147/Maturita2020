@@ -1,0 +1,81 @@
+{% set cardsCfg = serverMetaData.getIndexCardsCfg() %}
+{% set offerCfg = serverMetaData.getIndexOfferCfg() %}
+
+<div class="provided-page-index">
+    <h1> 
+        {{ lang.get("CompanyNameTitle") }}
+    </h1>
+
+    <p>
+        {{ lang.get("NoBreaksPageProvidedIndexDescription") }}
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>
+        <i class="fas fa-angle-right"></i>
+        {{ lang.get("PageProvidedIndexCardsHeader") }}
+    </h2>
+
+    <div class="provided-page-index-cards">
+        
+        {% for key in cardsCfg|keys %}
+        
+        <div class="provided-page-card">
+            <div class="provided-page-card-icon">
+                <i class="{{cardsCfg[key]}}"></i>
+            </div>
+
+            <div class="provided-page-card-header">
+                {{ lang.get("PageProvidedIndexCard" ~ key ~ "Header") }}
+            </div>
+
+            <div class="provided-page-card-text">
+                {{ lang.get("PageProvidedIndexCard" ~ key ~ "Desc") }}
+            </div>
+        </div>
+            
+        {% endfor %}
+
+    </div>
+    
+    <div class="divider"></div>
+
+    <h2>
+        <i class="fas fa-angle-right"></i>
+        {{ lang.get("PageProvidedIndexWhatCanWeOffer") }}
+    </h2>
+
+    <div class="provided-page-index-offerings">
+        <dl>
+            {% for offer in offerCfg.Offerings %}
+    
+            <dt>
+                {{ lang.get("PageProvidedIndexOffer" ~ offer) }}
+            </dt>
+            <dd>
+                {{ lang.get("PageProvidedIndexOffer" ~ offer ~ "Desc") }}
+            </dd>
+                
+            {% endfor %}
+        </dl>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>
+        <i class="fas fa-angle-right"></i>
+        {{ lang.get("PageProvidedIndexAnyOtherQuestions") }}
+    </h2>
+
+    <p>
+        {{ lang.get("NoBreaksPageProvidedIndexAnyOtherQuestionsDesc") }}
+    </p>
+
+    <div class="provided-page-index-footer">
+        <p>
+            {{ lang.get("PageProvidedIndexFooter") }}
+        </p>
+    </div>
+
+</div>

@@ -1,0 +1,56 @@
+{% set clsName = "calendar-row" %}
+
+{% if header == true %}
+    {% set clsName = clsName ~ " calendar-row-header" %}
+{% endif %}
+
+<div class="{{ clsName }}">
+    {% for dt in week %}
+
+    {% set cls = "calendar-day" %}
+    {% set dayEvents = NULL %}
+    
+    {% if utils.getDateMonth(dt) != currentMonth %}
+        {% set cls = cls ~ " calendar-day-grayed" %}
+    {% endif %}
+
+    {% if events != NULL %}
+        {% set dayEvents = serverMetaData.getEventsIn(events, dt) %}
+
+        {% if dayEvents != NULL %}
+            {% set cls = cls ~ " calendar-day-event" %}
+        {% endif %}
+    {% endif %}
+    
+
+    <div class="{{cls}}">
+        
+        <div class="calendar-day-content">
+            <div class="calendar-day-title">
+                {% if header == true %}
+                    {{ lang.get("DayWeek" ~ dt) }}
+                {% else %}
+                    {{ utils.getDateDay(dt) }}
+                {% endif %}
+            </div>
+        </div> 
+
+        {% if dayEvents != NULL %}
+            <div class="calendar-day-colors">
+                {% for dayEvent in dayEvents %}
+                    <div 
+                        class="calendar-day-color-{{dayEvent.Color}}"
+                        data-event-id="{{dayEvent.ID}}"
+                        data-event-message="{{lang.get(dayEvent.TitleText)}}"
+                        data-event-article="{{dayEvent.ArticleUniqueName}}"
+                        data-event-datebegin="{{dayEvent.DateBegin}}"
+                        data-event-dateend="{{dayEvent.DateEnd}}"
+                    ></div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+</div>    

@@ -1,0 +1,66 @@
+{% include "Header.twig" with { "title": "Admin", "script": "admin", "css": "admin" } %}
+
+<div class="admin-header">
+    <a href="/">
+        {{ lang.get("AdminHeaderLinkSite") }}
+    </a>
+
+    <a href="admin?page=page">
+        {{ lang.get("AdminHeaderLinkPages") }}
+    </a>
+
+    <a href="admin?page=article">
+        {{ lang.get("AdminHeaderLinkNews") }}
+    </a>
+
+    <a href="admin?page=calendar">
+        {{ lang.get("AdminHeaderLinkCalendar") }}
+    </a>
+
+    <a href="admin?page=uploads">
+        {{ lang.get("AdminHeaderLinkUploads") }}
+    </a>
+    
+    <a href="admin?page=feedback">
+        {{ lang.get("AdminHeaderLinkFeedbacks") }}
+    </a>
+    
+
+    <a href="/api?endpoint=users&method=logout&type=return&returnURL=login">
+        {{ lang.get("AdminHeaderLinkLogout") }}
+    </a>
+</div>
+
+<div class="admin-header-divider"></div>
+
+<div class="admin-wrapper">    
+    <div class="admin-body">
+    
+        <h1>{{ lang.get("AdminSiteHeader") }}</h1>
+
+        <div class="admin-content">
+            {% include page %}
+        </div>
+    </div>
+</div>
+
+<div class="admin-dialog-container">
+    <div class="admin-dialog">
+        <div class="admin-dialog-inner">
+            <p class="admin-dialog-title">
+                {{ lang.get("Error") }}
+            </p>
+    
+            <p class="admin-dialog-content">
+                
+            </p>
+    
+            <div class="admin-dialog-buttons admin-button-container">
+                <button class="admin-button admin-dialog-button">
+                    {{lang.get("ButtonClose")}}
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</div>

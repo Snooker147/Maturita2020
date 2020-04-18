@@ -1,0 +1,15 @@
+{% if show|default(true) %}
+
+<div class="admin-error">
+    <p>
+        {{ lang.get(error) }}
+    </p>
+
+    {% if closable %}
+        <button class="admin-error-close">
+            <i class="fa fa-times"></i>
+        </button>
+    {% endif %}
+</div>
+
+{% endif %}

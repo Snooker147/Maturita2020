@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "./../assets/",
+        "noImplicitAny": false,
+        "module": "es6",
+        "target": "es5",
+        "allowJs": true,
+        "skipLibCheck": true,
+        "moduleResolution": "Node",
+    },
+    "include": [
+        "src/**/*.ts",
+    ]
+}

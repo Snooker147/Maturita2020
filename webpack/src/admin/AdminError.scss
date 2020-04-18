@@ -1,0 +1,31 @@
+.admin-error {
+    position: relative;
+    
+    max-width: 500px;
+
+    padding: 10px 10px;
+
+    background-color: rgba(252, 23, 23, 0.959);
+    border: 1px solid red;
+
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    transition: opacity 200ms;
+}
+
+.admin-error-hidden {
+    opacity: 0;
+}
+
+.admin-error-close {
+    position: absolute;
+
+    top: 50%;
+    right: 5px;
+
+    transform: translateY(-50%);
+
+    color: white;
+}

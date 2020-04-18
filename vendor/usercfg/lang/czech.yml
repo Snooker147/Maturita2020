@@ -1,0 +1,386 @@
+# Test arguments indexes
+Test: "Test %2$s arguments %1$s and another one %3$s"
+
+DayWeek0: Monday
+DayWeek1: Tuesday
+DayWeek2: Wednesday
+DayWeek3: Thursday
+DayWeek4: Friday
+DayWeek5: Saturday
+DayWeek6: Sunday
+
+Month0: January
+Month1: February
+Month2: March
+Month3: April
+Month4: May
+Month5: June
+Month6: July
+Month7: August
+Month8: September
+Month9: October
+Month10: November
+Month11: December
+
+ColorRed: Red
+ColorBlue: Blue
+ColorGreen: Green
+
+CompanyNameTitle: NET Office
+CompanyNameMenuTitle: SOŠ Net Office Orlová
+CompanyName: NET OFFICE Orlová, s r.o.
+
+CompanyAddress: Energetiků 144
+CompanyPostCode: 735 14 Orlová - Lutyně
+CompanyTelephone: 603 219 193
+CompanyFax: 596 514 400
+CompanyCountry: Czech Republic
+
+AddressListTelephone: Telephone
+AddressListFax: Fax
+AddressListContact: Contact Us
+AddressListCountry: Country
+AddressListDirectContact: Contact us via direct email
+AddressListContactButton: Direct Contact
+
+ArticlesHeader: News and Articles
+ArticlesSeeAll: See all articles
+
+DomainTitle: SOŠ Net Office Orlová
+DomainTitleInvalidPage: Not Found
+
+FooterCreatedBy: Learn how we created this site
+FooterCopyright: Copyright
+FooterAllRightsReceived: All Rights Received
+FooterSponsors: Third parties we're partnered with
+FooterChangeLanguageDesc: We're also avaible in multiple languages
+FooterLangTypeNameCzech: Czech (Čeština)
+FooterLangTypeNameEnglish: English (English)
+
+Error: Error
+
+# %s = Why the error has happened
+LoginError: "Login Error: %s"
+
+HeaderMobileMenu: Menu
+
+PageNotFoundHeader: This man tried to find the page you're looking for
+PageNotFoundSubHeader: ...but he did not find anything.
+PageNotFoundMessage: You can try to go back to home page and go to different page instead
+PageNotFoundLink: Go to Home Page
+PageUnavaibleInYourLanguage: Translation Missing
+NoBreaksPageUnavaibleInYourLanguage: 
+    - The page you are currently viewing is not translated to your choosen language.
+    - It is therefor displayed in the site's default language.
+    - We work hard on translating all articles and pages to all supported languages
+    - but it may take us a while till we get there.
+PageUnavaibleInYourLanguageThanks: Thanks for understanding
+
+ContentOtherItemSocialMedia: Our Social Media
+
+OtherActions: Other Actions
+
+# Header Localizations
+HeaderButtonAboutUs: About Us
+HeaderButtonSchoolHistory: School History
+HeaderButtonSchoolManagement: School Management
+HeaderButtonSchoolBoard: School Board
+HeaderButtonEducationalCounseling: Educational Counseling
+
+HeaderButtonForCandidates: For Candidates
+HeaderButtonGallery: Photogallery
+HeaderButtonStudyOffers: Study Offer
+HeaderButtonStudyPlan: Study Plan
+HeaderButtonAbsolventProfile: Absolvent Profile
+
+
+HeaderButtonForPublic: For Public
+HeaderButtonDVPP: DVPP
+
+HeaderButtonForStudends: For Students
+HeaderButtonDocuments: Documents
+HeaderButtonCalendar: Calendar
+HeaderButtonISkola: iŠkola
+
+ButtonYes: "Yes"
+ButtonNo: "No"
+ButtonConfirm: Confirm
+ButtonCancel: Cancel
+ButtonOK: Okay
+ButtonHome: Home
+ButtonClose: Close
+ButtonLogin: Log in
+ButtonAdminErrorClose: Close
+ButtonDeleteUploaded: Delete
+ButtonUpload: Upload
+ButtonCreateUser: Create User
+ButtonEditUser: Update User
+ButtonDeleteUser: Delete User
+ButtonCreatePage: Create Page
+ButtonEditPage: Update Page
+ButtonDeletePage: Delete Page
+ButtonChangeLanguage: Change Language
+ButtonCreateArticle: Create Article
+ButtonEditArticle: Update Article
+ButtonDeleteArticle: Delete Article
+ButtonCreateCalendarEvent: Create Event
+ButtonEditCalendarEvent: Update Event
+ButtonDeleteCalendarEvent: Delete Event
+ButtonDeleteFeedback: Delete Feedback
+
+Loading: Loading...
+Page: Page
+
+EMail: E-Mail
+EMailPlaceholder: somebody@something.com
+Username: Username
+Password: Password
+Telephone: Telephone
+TelephonePlaceholder: +420 XXX XXX XXX
+
+UserRole: Role
+UserRoleDefault: Classic User
+UserRoleTeacher: Teacher
+UserRoleAdmin: Admin
+
+UserCreated: User has been created
+UserEdited: User has been edited
+UserDeleted: User has been deleted
+
+PageLanguage: Page Language
+PageLanguageCzech: Czech
+PageLanguageEnglish: English
+
+PageListHeader: Pages
+PageID: Page URL
+PageIDPlaceholder: page-url-friendly-name 
+PageTitle: Heading
+PageTitlePlaceholder: User Friendly Page Heading
+PageDeleted: Page Deleted
+PageEdited: Page Updated
+
+ArticleListHeader: Articles
+ArticleName: Article URL
+ArticleNamePlaceholder: article-url-friendly-name 
+ArticleTitle: Heading
+ArticleTitlePlaceholder: User Friendly Article Heading
+ArticleLanguage: Article Language
+ArticleDeleted: Article Deleted
+ArticleEdited: Article Updated
+
+CalendarEventListHeader: Events
+CalendarEventStart: Start Date
+CalendarEventStartPlaceholder: DD.MM.YY hh:mm 
+CalendarEventEnd: End Date
+CalendarEventEndPlaceholder: DD.MM.YY hh:mm
+CalendarEventTitle: Title
+CalendarEventTitlePlaceholder: Day of open doors
+CalendarEventArticle: Article ID
+CalendarEventArticlePlaceholder: article-about-open-doors
+CalendarEventColor: Color
+
+FeedbackIssued: Feedback Issued At
+FeedbackName: Firstname and Surname
+FeedbackEMail: E-Mail
+FeedbackPhone: Phone number
+FeedbackMessage: Message
+
+# Index Calendar Dialog
+CalendarDialogBegins: Začátek
+CalendarDialogEnds: Konec 
+
+# Admin sites translations
+AdminSiteHeader: Administration
+
+AdminHeaderLinkSite: Site
+AdminHeaderLinkPages: Pages
+AdminHeaderLinkNews: News
+AdminHeaderLinkCalendar: Calendar
+AdminHeaderLinkUploads: Media
+AdminHeaderLinkLogout: Logout
+AdminHeaderLinkFeedbacks: Feedbacks
+
+AdminCreatePage: Create Page
+AdminEditPage: Edit Page
+AdminCreateArticle: Create Article
+AdminEditArticle: Edit Article
+AdminCreateCalendarEvent: Create Event
+AdminEditCalendarEvent: Edit Event
+AdminUploadListNewEntry: Upload New Media
+AdminUploadImagesTitle: Images
+AdminUploadDocsTitle: Documents
+AdminUploadListNamePlaceholder: Document Name
+AdminFeedbackTitle: Feedbacks
+AdminFeedbackListHeader: Feedbacks
+AdminDetailFeedback: Feedback Detail
+
+# Error messages
+EditUserInvalid: User you are trying to find does not exists.
+
+ErrorFailedToCreateSession: Session failed to be created
+ErrorSessionFailedToDestroyed: Session failed to be destroyed
+
+InsufficientPermission: Insufficient permissions
+UnspecifiedEndpoint: Unspecified API endpoint
+UnspecifiedMethod: Unspecified API method
+UnknownEndpoint: Unknown API endpoint
+UnknownMethod: Unknown API method
+
+ErrorUsersArgEmailInvalidEmail: Email address provided is not a valid email!
+ErrorUsersArgUsernameRequired: Username is required
+ErrorUsersArgUsernameSmaller: Username is too small (Minimum of 4 characters are required)
+ErrorUsersArgUsernameLarger: Username is too large (Maximum is 32 characters)
+ErrorUsersArgPasswordRequired: Password is required
+ErrorUsersArgPasswordSmaller: Password is too small (Minimum of 4 characters are required)
+ErrorUsersArgPasswordLarger: Password is too large (Maximum is 32 characters)
+ErrorUsersArgTelephoneRequired: Telephone is required 
+ErrorUsersArgRoleRequired: Role is required
+ErrorUsernameTaken: Username is already taken
+
+ErrorPagesArgUniqueRequired: Page must have a Unique Name
+ErrorPagesArgHeadingRequired: Page must contain heading
+ErrorPagesArgLanguageidRequired: Page language target must be provided
+ErrorPagesArgHtmlRequired: You cannot submit empty pages
+
+ErrorArticlesArgUniqueRequired: Article must have a Unique Name
+ErrorArticlesArgHeadingRequired: Article must contain Heading
+ErrorArticlesArgHtmlRequired: Article cannot be empty
+
+ErrorUserNotFound: Unknown user
+ErrorPasswordMismatch: Incorrect password
+ErrorNotLoggedIn: Not logged in
+
+ErrorDeleteUserUnableSelf: You can't delete yourself
+ErrorUserDoesNotExist: User not found
+
+ErrorFeedbackArgEmailInvalidEmail: Email is not valid
+ErrorFeedbackArgMessageRequired: It will sound strange but, the message you're trying to send us is required
+ErrorFeedbackArgCheckedRequired: You must comply with the agreement
+
+ErrorEventsArgStartRequired: Start date is required
+ErrorEventsArgStartInvalidDate: "Start date must be in format: DD.MM.YYYY HH:mm"
+ErrorEventsArgEndRequired: End date is required
+ErrorEventsArgEndInvalidDate: "End date must be in format: DD.MM.YYYY HH:mm"
+ErrorEventsArgTitletextRequired: Title is required
+ErrorEventsArgArticle-nameRequired: Article Name is required
+
+ErrorMediaArgTypeRequired: Type of media must be supplied
+ErrorMediaArgNameRequired: Document name is required
+
+ErrorUpload1: You must provide uploaded file
+ErrorUpload2: File must be an image or document
+ErrorUpload3: File you provided already exist
+ErrorUpload4: Exceeded maximum size of 25MB
+ErrorUpload5: Invalid file extension
+ErrorUpload6: Unknown Error Happened, try again later
+
+# Developer Provided Pages
+PageContactUsError: Error while processing your request
+PageContactUsDone: Yeah, we hear you
+NoBreaksPageContactUsDoneDesc:
+    - We got your message and we'll try to respond as soon as we can.
+    - While you're waiting, why don't you explore our site more or write us another message?
+PageContactUsDoneAddonInfo: Seriously though, thanks for contacting us
+PageContactUsTitle: Contact Us
+PageContactUsSubTitle: Send us your thoughs, ideas, critisism, whatever you like. We'll try to respond as soon as we can
+PageContactUsWizard: First we need you to enter some information about yourself
+PageContactPrivacy: Dont worry, we'll keep your personal information confidential.
+LabelContactUsName: Firstname and Surname
+LabelContactUsEmail: E-Mail Address
+LabelContactUsTelephone: Phone Number
+LabelContactUsMessage: Message you'd like to send us
+ContactUsSendBtn: Send Message
+LabelContactUsPrivacyPolicy: I agree to the tiny bit of text below
+NoBreaksLabelContactUsPrivacyPolicyDesc:
+    - Dont worry, we'll keep your personal information confidential.
+    - We need you to confirm the agreement because it is a requirement in case
+    - you would like to screw with us. Which we know you won't do.
+    - But we know people and sure you know as well.
+    - We are not selling the information you provide to anyone 
+    - and we'll delete all of conversation contents after it's all sorted out.
+
+# Below are messages sent to someone who uses contact form
+FeedbackEmailTemplateSubject: SOŠ Net Office Orlová - Contact Form
+FeedbackEmailTemplateHello: Hello %1$s
+NoBreaksFeedbackEmailTemplateMessage:
+    - We got the message you have sent us using our Contact Form.
+    - Thanks for contacting us, we'll respond as soon as we possibly can.
+    - You can always phone us directly at +420 603 219 193 should you need immediete response.
+FeedbackEmailTemplateFooter: 
+    - Have a nice day,
+    - SOŠ Net Office Orlová
+
+NoBreaksPageProvidedIndexDescription:
+    - Vítejte na stránkách Střední odborné školy NET OFFICE Orlová, spol. s r. o. 
+    - Náše instituce vznikla v roce 1994 a od počátku se specializuje na obor Informační technologie. 
+    - Jsme malá škola rodinného typu, která se nachází v centru Orlové, okres Karviná.
+
+PageProvidedIndexCardsHeader: What students learn
+# See usercfg/index-cards.yml for key names
+PageProvidedIndexCardProgrammingHeader: Programming
+PageProvidedIndexCardProgrammingDesc: We code in Microsofts .NET C#
+PageProvidedIndexCardDatabaseHeader: Database
+PageProvidedIndexCardDatabaseDesc: Microsoft Access, SQL based Systems
+PageProvidedIndexCardWebHeader: Web Development
+PageProvidedIndexCardWebDesc: HTML, CSS, JS, PHP
+PageProvidedIndexCardSoftwareHeader: Applications
+PageProvidedIndexCardSoftwareDesc: Excel, Word, Powerpoint, Blender, ProgeCAD, ProgeCAD Inventor
+PageProvidedIndexCardOperatingSystemsHeader: Operating Systems
+PageProvidedIndexCardOperatingSystemsDesc: From Windows to ./start.sh Linux
+PageProvidedIndexCardHardwareHeader: Hardware
+PageProvidedIndexCardHardwareDesc: We look deep into it, replacing parts etc.
+PageProvidedIndexCardPCSystemsHeader: Computer Systems
+PageProvidedIndexCardPCSystemsDesc: Network Solutions, Domain Systems, Procotols
+
+PageProvidedIndexWhatCanWeOffer: Why study at our school?
+# See usercfg/index-we-offer.yml for key names
+PageProvidedIndexOfferNumOfClassRooms: Six Classrooms
+PageProvidedIndexOfferNumOfClassRoomsDesc: Good looking, renovated and family-based class rooms for comfortable learning experience
+PageProvidedIndexOfferNumOfPCClassRooms: Four Computer Classrooms
+PageProvidedIndexOfferNumOfPCClassRoomsDesc: Modern, High speed Computers and other Hardware pieces for students to play with
+PageProvidedIndexOfferModern: We are modern
+PageProvidedIndexOfferModernDesc: Our school uses top-notch equipment and modern learning techniques
+PageProvidedIndexOfferDigital: We are digital
+PageProvidedIndexOfferDigitalDesc: We learn what is practical and used in not only professional but personal life 
+PageProvidedIndexOfferImproving: Constantly Improving
+PageProvidedIndexOfferImprovingDesc: Our personnel is constantly involves and learns in the technologies they're lectoring
+PageProvidedIndexOfferPractical: Practical
+PageProvidedIndexOfferPracticalDesc: Our students can be found all over the world. In highly rated orgonisations and others
+
+PageProvidedIndexAnyOtherQuestions: Want to know something else?
+NoBreaksPageProvidedIndexAnyOtherQuestionsDesc:
+    - Contact us using any method describe on the right hand side.
+    - You can also search the site more to find more information about us.
+    - There's plenty of documents to read and learn from about us, also
+    - dont forget to check out our gallery to see how it looks like in here!
+    - We frequently hold Open Days for you too see the school for yourself.
+
+PageProvidedIndexFooter: Thanks for stumbling around us, hope to see you in our school!
+
+
+# Articles
+PageArticleNotFound: Article could not be found
+NoBreaksPageArticleCouldNotBeFound:
+    - We couldn't find that artile. We tried to find it everywhere but we were nowhere enough near it.
+    - Everything just feels empty when you ask us this particular question that point to that artile ID in the URL.
+PageArticleTranslationMissing: This article has yet to be translated to your language
+NoBreaksPageArticleTranslationMissing:
+    - Most articles are used for students and their families to inform them about changes etc.
+    - It's very likely this article is not relevant to your language at all.
+    - Should you believe this is an error. Please contact us
+
+# Article List
+PageArticleListHeader: Articles
+PageArticleListLinkPrev: Previous
+PageArticleListLinkNext: Next
+PageArticleListControlInfo: Page %1$s of %2$s
+PageArticleListEmpty: Such empty, much nothing
+NoBreaksPageArticleListEmpty:
+    - There are currently no articles to be found.
+    - We know, it's sad, but we'll add here news as soon as they are any!
+
+# Gallery
+PageGalleryTitle: School Photo Gallery
+
+# Documents
+PageDocumentsTitle: Documents

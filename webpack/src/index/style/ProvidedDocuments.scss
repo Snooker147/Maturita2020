@@ -1,0 +1,12 @@
+.provided-documents {
+    a {
+        display: block;
+
+        transition: color 200ms, padding-left 200ms;
+
+        &:hover {
+            color: $headerBackground;
+            padding-left: 5px;
+        }
+    }
+}

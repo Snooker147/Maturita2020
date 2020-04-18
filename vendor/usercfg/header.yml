@@ -1,0 +1,20 @@
+AboutUs:
+    AboutUs: o-skole
+    SchoolHistory: z-historie-skoly
+    SchoolManagement: skolni-management
+    SchoolBoard: skolska-rada
+    EducationalCounseling: vychovne-poradenstvi
+    
+ForCandidates:
+    Gallery: gallery
+    StudyOffers: nabidka-studia
+    AbsolventProfile: /uploads/docs/Profil Absolventa.pdf
+    StudyPlan: /uploads/docs/Učební Plán.pdf
+    
+
+ForPublic:
+    DVPP: dvpp
+ForStudends:
+    Documents: documents
+    Calendar: calendar
+    ISkola: https://iskola.cz/netoffice
