@@ -15,7 +15,7 @@
 		"fibers": "^4.0.2",
 		"file-loader": "^5.0.2",
 		"glob": "^7.1.6",
-		"jquery": "^3.4.1",
+		"jquery": "^3.5.0",
 		"material-components-web": "^4.0.0",
 		"mini-css-extract-plugin": "^0.8.2",
 		"node-sass": "^4.13.1",
