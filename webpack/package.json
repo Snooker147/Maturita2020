@@ -18,7 +18,7 @@
 		"jquery": "^3.4.1",
 		"material-components-web": "^4.0.0",
 		"mini-css-extract-plugin": "^0.8.2",
-		"node-sass": "^4.13.1",
+		"node-sass": "^7.0.0",
 		"sass": "^1.25.0",
 		"sass-loader": "^8.0.2",
 		"style-loader": "^1.1.3",
